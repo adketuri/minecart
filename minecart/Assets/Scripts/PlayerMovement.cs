@@ -48,12 +48,12 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
             animator.SetBool("IsJumping", true);
-
         }
         animator.SetFloat("Angle", getGroundAngle());
 
         if (!fallen && GameObject.Find("Character").transform.position.y < -10)
         {
+            SoundManagerScript.PlaySound(SoundManagerScript.FALL);
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsFalling", true);
             fallen = true;
